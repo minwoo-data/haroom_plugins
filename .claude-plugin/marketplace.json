@@ -1,8 +1,8 @@
 {
   "name": "haroom_plugins",
-  "description": "haroom (Minwoo Park) Claude Code plugins - ddaro, prism, triad, mangchi",
+  "description": "haroom Claude Code plugins - ddaro, prism, triad, mangchi",
   "owner": {
-    "name": "Minwoo Park",
+    "name": "haroom",
     "url": "https://github.com/minwoo-data"
   },
   "plugins": [

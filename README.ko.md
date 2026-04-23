@@ -2,7 +2,7 @@
 
 # haroom_plugins
 
-> **haroom** (박민우) 가 만든 Claude Code 플러그인 모음.
+> **haroom** 가 만든 Claude Code 플러그인 모음.
 
 Claude Code 로 실제 작업하다 보면 터지는 특정 문제들을 겨냥한 작은 플러그인 모음입니다: 병렬 세션이 서로 코드를 덮어쓰는 문제, AI 가 자기 코드를 자기가 리뷰하는 문제, AI 가 파싱 못하는 디자인 문서 문제. 각 플러그인은 자기 repo 에서 별도 관리되며, 이 aggregator marketplace 가 4개 전부를 묶어 `marketplace add` 한 번으로 설치할 수 있게 합니다.
 
@@ -100,4 +100,4 @@ MIT - [LICENSE](./LICENSE) 참조. 각 플러그인 폴더도 원본 LICENSE 를
 
 ## Author
 
-박민우 (Minwoo Park) - [github.com/minwoo-data](https://github.com/minwoo-data)
+haroom - [github.com/minwoo-data](https://github.com/minwoo-data)

@@ -2,7 +2,7 @@ English | [한국어](README.ko.md)
 
 # haroom_plugins
 
-> Claude Code plugins by **haroom** (Minwoo Park).
+> Claude Code plugins by **haroom**.
 
 A small collection of Claude Code plugins that target specific pain points when using Claude Code for real work: parallel sessions clobbering each other, AI reviewing its own code, design docs that AI cannot parse. Each plugin lives in its own repo; this marketplace aggregates them so one `marketplace add` covers all four.
 
@@ -100,4 +100,4 @@ MIT - see [LICENSE](./LICENSE). Each plugin retains its original LICENSE file pr
 
 ## Author
 
-Minwoo Park - [github.com/minwoo-data](https://github.com/minwoo-data)
+haroom - [github.com/minwoo-data](https://github.com/minwoo-data)
