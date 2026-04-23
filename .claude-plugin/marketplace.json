@@ -9,7 +9,7 @@
     {
       "name": "ddaro",
       "source": "./plugins/ddaro",
-      "description": "Worktree-based parallel workflow for Claude Code sessions. 6-tier worktree classification (main / owned / adopted / protected / unmanaged / external), /ddaro:adopt to bring existing worktrees under management, cwd-safe destructive commands (clear/abandon from main only), size-based merge review, crash-recoverable context logs, opt-in main_protection hooks (off/warn/strict). Korean triggers: 따로, 병렬로.",
+      "description": "Worktree-based parallel workflow for Claude Code sessions. 6-tier worktree classification (main / owned / adopted / protected / unmanaged / external), /ddaro:adopt to bring existing worktrees under management, cwd-safe destructive commands (clear/abandon from main only), size-based merge review, crash-recoverable context logs, main_protection hooks (default strict — prompted during first-time setup). 6-step /ddaro:start setup with explicit 'is cwd main?' confirmation. /ddaro:abandon --force for adopted targets. Commands pruned: setting→config, summary→resume --recap-only. Korean triggers: 따로, 병렬로.",
       "category": "development",
       "tags": ["worktree", "parallel", "git", "branch", "crash-recovery", "adopt", "main-protection", "claude-code"]
     },
