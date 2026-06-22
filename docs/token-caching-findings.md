@@ -12,6 +12,9 @@ prism/prism-all as built, and only partially + conditionally available to mangch
 Do NOT build a prism caching feature. The real prism lever is right-sizing the
 review (lossy, stake-gated). The one remaining lossless caching lever is a mangchi
 prompt re-order, which is worth a small experiment but capped by file mutation.
+(2026-06-22 update below: adversarial review confirms the batch-review token lever
+is incremental / changed-targets scoping, NOT a shared-facts memo; and right-size
+lands in a consolidated `/prism --engine` dispatch.)
 
 ## Why this was checked
 
@@ -83,6 +86,43 @@ point each round; needs empirical confirmation of `prompt_cache_key` + `cached_t
   pull it only where stakes are low.
 - mangchi: keep Codex-token tracking; add Claude-side token tracking (instrumentation,
   lossless). Optionally run the file-first re-order experiment above.
+
+## Update 2026-06-22 - adversarial-review verdicts (review-tooling + prism-consolidation)
+
+Two related design docs were drafted and prism-all-reviewed (currently untracked in
+expense-us-seoul): `review-tooling-improvements.md` (7 proposals A-G) and
+`prism-consolidation-design.md` (collapse prism / prism-all / prism-codex into one
+`/prism --engine`). What their reviews change for token efficiency:
+
+### Batch-review token cost: incremental scoping, NOT a shared-facts memo
+Single-review caching is dead (Findings 1-2 above). For BATCH review over N targets,
+the review-tooling verdict (10 reviewers, cross-model) names the real lever:
+**incremental / changed-targets scoping** - the "biggest omitted cost lever" - re-run
+only changed targets + their blast radius, carry-forward PASS otherwise; plus a cost
+governor and one global concurrency semaphore (N x 10 = up to ~300 concurrent calls).
+
+The tempting alternative - a shared-facts "do not re-discover" memo (proposal D) - was
+rated CRITICAL ("cut or invert"): injecting shared context into the discovery angles
+CORRELATES the reviewers, which destroys prism-all's independent-ensemble value, and
+one wrong "fact" suppresses real findings across every target. So **do not use
+context-injection to save batch tokens** - any shared context belongs in a separate
+synthesis/gate step, never in discovery prompts.
+
+### right-size (the prism lever) is validated, and lands in the unified dispatch
+The same review independently flagged cost-scoping as the missing lever, which
+validates the right-size direction here. The prism-consolidation review further
+recommends extracting a shared runner/library with thin `/prism --engine` entrypoints
+(rather than one conditional SKILL.md). Implication: build right-size ONCE into that
+unified dispatch / `--engine` + `--quick` flag semantics, not into three skills.
+
+### Net build order
+1. prism-consolidation as a shared library + thin entrypoints - nail the
+   verifier/engine matrix, the alias-shim mechanism, partial-failure semantics, and
+   fixture-based parity proof first. This is the substrate.
+2. Proposal A (structured schema output) - the one clear review-tooling survivor -
+   implemented once on the shared library.
+3. right-size (stake-gated angle/engine selection) folded into the unified dispatch.
+4. Defer B/D/E/F/G; batch cost = incremental scoping if/when batch review recurs.
 
 ## Open empirical questions (not yet run)
 
