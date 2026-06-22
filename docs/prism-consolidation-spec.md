@@ -1,6 +1,6 @@
 # prism consolidation - implementation spec (the 6 gating contracts)
 
-Status: SPEC - proposed contract resolutions (confirm / adjust before building)
+Status: SPEC - FROZEN (all 6 contracts + the 2 owner decisions resolved 2026-06-22; ready to implement)
 Date: 2026-06-22
 Scope: freeze the contracts the prism-all review flagged as "underspecified to
 build" before merging prism / prism-all / prism-codex into `/prism --engine`.
@@ -125,13 +125,13 @@ the 5 angles / v1 record format / `parse-findings.js` behavior (only copy-count 
 - right-size dial (stake-gated angle/engine selection) - into `--engine` / `--quick`
   semantics. See `token-caching-findings.md`.
 
-## Decisions that still want owner sign-off
+## Owner decisions (CONFIRMED 2026-06-22)
 
-1. default engine = `claude` (vs require explicit `--engine`). [recommend: claude -
-   keeps bare `/prism` identical to today]
-2. degrade-by-default vs strict-by-default on mid-run engine failure.
-   [recommend: degrade + a loud `ENGINE-DEGRADED` marker, `--strict` to opt into
-   fail-closed - so one engine hiccup never silently sinks an expensive review]
+1. **default engine = `claude`** - bare `/prism` stays identical to today;
+   `--all` / `--codex` escalate. (Contract 5.)
+2. **degrade-by-default + a loud `ENGINE-DEGRADED` marker** on mid-run engine
+   failure; `--strict` opts into fail-closed. (Contract 4.)
 
-(Contract 3 "shims vs hard-cut" is RESOLVED above: thin entrypoints over one shared
-core, empirically grounded - no sign-off needed.)
+Contract 3 ("shims vs hard-cut") resolved empirically above: thin entrypoints over
+one shared core. All 6 contracts + both owner decisions are now frozen - ready to
+implement (cutover order above).
