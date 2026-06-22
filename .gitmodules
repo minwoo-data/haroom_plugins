@@ -10,3 +10,6 @@
 [submodule "plugins/mangchi"]
 	path = plugins/mangchi
 	url = https://github.com/minwoo-data/mangchi.git
+[submodule "plugins/galmuri"]
+	path = plugins/galmuri
+	url = https://github.com/minwoo-data/galmuri.git

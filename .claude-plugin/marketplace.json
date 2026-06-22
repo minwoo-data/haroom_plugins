@@ -1,6 +1,6 @@
 {
   "name": "haroom_plugins",
-  "description": "haroom Claude Code plugins - ddaro, prism, triad, mangchi",
+  "description": "haroom Claude Code plugins - ddaro, prism, triad, mangchi, galmuri",
   "owner": {
     "name": "haroom",
     "url": "https://github.com/minwoo-data"
@@ -33,6 +33,13 @@
       "description": "Iterative cross-model code refinement - Claude patches, Codex CLI reviews one axis per round with verification loop, until the code converges.",
       "category": "development",
       "tags": ["code-review", "codex", "refinement", "iterative", "adversarial-review"]
+    },
+    {
+      "name": "galmuri",
+      "source": "./plugins/galmuri",
+      "description": "Distill reusable, project-agnostic techniques (hooks, rules, guards, structural patterns) from a project into portable technique cards in a knowledge repo - so the know-how survives without the project. Korean trigger: 갈무리.",
+      "category": "development",
+      "tags": ["knowledge-extraction", "distillation", "portability", "technique-cards", "knowledge-base", "reuse"]
     }
   ]
 }
