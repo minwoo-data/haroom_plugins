@@ -43,18 +43,25 @@ Rules:
   different angles are merged BEFORE verification (dedupe).
 [Rationale: review HIGH - verifier routing for `both` was unspecified.]
 
-## Contract 3 - alias-shim mechanism (the riskiest unknown)
+## Contract 3 - entrypoint mechanism (RESOLVED 2026-06-22, empirical)
 
-Decision: **thin command-file shims**, not SKILL.md copies. `/prism-all` and
-`/prism-codex` are one-line command files that invoke the prism skill with the
-engine preset and forward `$ARGUMENTS` verbatim. ZERO copied prompts/parser/synthesis.
+Empirical finding (claude-code-guide + existing `commands/prism.md`): `$ARGUMENTS`
+substitution into a command body is DETERMINISTIC and reliable. What is NOT reliable
+is a shim that re-invokes ANOTHER skill via the Skill tool - that is model-mediated
+(the model may narrate instead of invoking) and has no documented alias pattern.
 
-Acceptance (MUST pass before deleting anything): `/prism-all <t> --quick` and
-`/prism-codex <t> --adversarial` produce identical dispatch (same engine, same
-flags) as `/prism <t> --all --quick` / `--codex --adversarial`. **If argv
-forwarding proves unreliable in Claude Code, fall back to HARD-CUT + a deprecation
-note - never silent breakage.**
-[Rationale: review HIGH / all-5 angles - shims assumed to forward argv reliably.]
+Decision: **do NOT build shims that re-invoke `/prism`.** Keep `/prism-all` and
+`/prism-codex` as **thin entrypoints (command files) that each preset the engine in
+their own body and read the ONE shared core directly** - exactly how
+`commands/prism.md` already works (parse args -> read `skills/prism/SKILL.md` ->
+execute). Each entrypoint: sets `engine` (both / codex), `$ARGUMENTS` carries
+target+flags, reads the shared core, executes. No skill-to-skill delegation, no
+duplicated prompts/parser/synthesis.
+
+Net: triggers `/prism-all` / `/prism-codex` keep working (no muscle-memory break),
+the model-optional-delegation failure mode is avoided, and drift is zero (all read
+one core). This supersedes BOTH "re-invoke shim" and "hard-cut".
+[Rationale: review HIGH/all-5 + empirical arg-forwarding check.]
 
 ## Contract 4 - preflight + partial-failure
 
@@ -120,7 +127,11 @@ the 5 angles / v1 record format / `parse-findings.js` behavior (only copy-count 
 
 ## Decisions that still want owner sign-off
 
-1. default engine = `claude` (vs require explicit `--engine`).
-2. shims vs hard-cut (depends on whether Claude Code reliably forwards `$ARGUMENTS`
-   from one command to another - the one empirical unknown to test first).
-3. degrade-by-default vs strict-by-default on mid-run engine failure.
+1. default engine = `claude` (vs require explicit `--engine`). [recommend: claude -
+   keeps bare `/prism` identical to today]
+2. degrade-by-default vs strict-by-default on mid-run engine failure.
+   [recommend: degrade + a loud `ENGINE-DEGRADED` marker, `--strict` to opt into
+   fail-closed - so one engine hiccup never silently sinks an expensive review]
+
+(Contract 3 "shims vs hard-cut" is RESOLVED above: thin entrypoints over one shared
+core, empirically grounded - no sign-off needed.)
