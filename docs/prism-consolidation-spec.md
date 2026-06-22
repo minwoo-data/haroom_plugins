@@ -1,6 +1,19 @@
 # prism consolidation - implementation spec (the 6 gating contracts)
 
-Status: SPEC - FROZEN (all 6 contracts + the 2 owner decisions resolved 2026-06-22; ready to implement)
+Status: SUPERSEDED 2026-06-22 - DO NOT IMPLEMENT.
+
+> **SUPERSEDED.** The `/prism --engine` merge this spec freezes was REJECTED in the
+> live skills repo (`~/.claude/skills`, commit `553d7d9`) the same day, for blockers
+> this spec missed: (1) a hard `context: fork` frontmatter conflict - prism forks
+> Claude subagents, codex variants need the main bash context, so they cannot share
+> one skill; (2) cross-skill file references are hook-blocked, so the shared-lib /
+> alias-shim / "one shared core" approaches - INCLUDING this spec's Contract 3 - are
+> all impossible; (3) synthesis was never duplicated, so merging only relocates
+> complexity; and it would collapse 3 independent blast radii into 1. The
+> duplication that actually mattered (the high-churn parsers) was instead solved by
+> a single canonical `parse-findings.js` + `sync-review-parsers.sh`, keeping the 3
+> skills as separate thin entrypoints. Proposal A (structured findings v1) already
+> shipped (`62661dc`). The contract analysis below is kept for history only.
 Date: 2026-06-22
 Scope: freeze the contracts the prism-all review flagged as "underspecified to
 build" before merging prism / prism-all / prism-codex into `/prism --engine`.

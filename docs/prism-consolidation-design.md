@@ -1,6 +1,17 @@
 # Prism Family Consolidation - Design Proposal
 
-Status: DRAFT for adversarial review (prism-all)
+Status: SUPERSEDED 2026-06-22 - the merge proposed here was REJECTED. DO NOT BUILD.
+
+> **SUPERSEDED.** This `/prism --engine` merge was rejected in the live skills repo
+> (`~/.claude/skills`, commit `553d7d9`) the same day: a hard `context: fork`
+> conflict (prism forks Claude subagents; codex variants need the main bash
+> context - cannot share one skill), hook-blocked cross-skill file references (so
+> shared-lib / alias-shim / one-shared-core are ALL impossible), and a synthesis
+> that was never duplicated. The real duplication (the high-churn parsers) was
+> instead single-sourced via canonical `parse-findings.js` + `sync-review-parsers.sh`
+> (`--check` drift gate), keeping the 3 skills separate. Proposal A (structured
+> findings v1) already shipped (`62661dc`). See `prism-consolidation-spec.md` (also
+> superseded) and `prism-consolidation-design.REVIEW.md`. Kept for history.
 Author: Minwoo Park
 Date: 2026-06-22
 Scope: collapse the engine-variant skills `prism` / `prism-all` / `prism-codex`
