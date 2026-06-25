@@ -37,9 +37,9 @@
     {
       "name": "galmuri",
       "source": "./plugins/galmuri",
-      "description": "Distill reusable, project-agnostic techniques (hooks, rules, guards, structural patterns) from a project into portable technique cards in a knowledge repo - so the know-how survives without the project. Korean trigger: 갈무리.",
+      "description": "Distill reusable, project-agnostic techniques (hooks, rules, guards, structural patterns) from a project into portable technique cards in a knowledge repo - so the know-how survives without the project. The companion /forge turns a skill-shaped card back into a verified Claude Code skill (classify card shape, scaffold SKILL.md, gate on 9 quality criteria). Korean trigger: 갈무리.",
       "category": "development",
-      "tags": ["knowledge-extraction", "distillation", "portability", "technique-cards", "knowledge-base", "reuse"]
+      "tags": ["knowledge-extraction", "distillation", "portability", "technique-cards", "knowledge-base", "reuse", "skill-generation"]
     }
   ]
 }
