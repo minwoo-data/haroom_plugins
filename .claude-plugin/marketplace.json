@@ -16,9 +16,9 @@
     {
       "name": "prism",
       "source": "./plugins/prism",
-      "description": "Multi-angle code review - 5 parallel agents discover, singleton verifier cross-checks. Agreement auto-confirms.",
+      "description": "Evidence-graded multi-angle code review - 5 defect lenses discover in parallel, then an Evidence pass pins every finding to file/lines/execution-path; --reproduce demonstrates failures with throwaway tests. SUSPECTED -> SUPPORTED -> REPRODUCED: agreement prioritizes, evidence confirms.",
       "category": "development",
-      "tags": ["code-review", "multi-agent", "parallel", "verification"]
+      "tags": ["code-review", "multi-agent", "parallel", "evidence", "reproduction", "verification"]
     },
     {
       "name": "triad",
