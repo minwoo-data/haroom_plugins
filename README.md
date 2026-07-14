@@ -10,12 +10,14 @@ A small collection of Claude Code plugins that target specific pain points when 
 
 ## Which plugin should I pick?
 
-| If this sounds like you... | Try |
+| Goal | Tool |
 |---|---|
-| "I run multiple Claude Code sessions and they trip over each other" | **[ddaro](https://github.com/minwoo-data/ddaro)** |
-| "I want a 5-angle code review before a risky PR" | **[prism](https://github.com/minwoo-data/prism)** |
-| "This design doc will be read by AI agents too, I need it airtight" | **[triad](https://github.com/minwoo-data/triad)** |
-| "I want Claude and Codex to cross-review a file until it converges" | **[mangchi](https://github.com/minwoo-data/mangchi)** |
+| Find defects broadly, evidence-graded (SUSPECTED → SUPPORTED → REPRODUCED) | **[prism](https://github.com/minwoo-data/prism)** |
+| Cross-check the same review with a second model (Claude + Codex) | **`/prism-all`** (ships inside prism) |
+| Security / attacker-mindset deep probe | **[prism-devil](https://github.com/minwoo-data/prism-devil)** (separate repo) |
+| Actually fix a file, iteratively, with cross-model review | **[mangchi](https://github.com/minwoo-data/mangchi)** |
+| Review markdown / designs / specs from 3 perspectives | **[triad](https://github.com/minwoo-data/triad)** |
+| Run parallel Claude Code sessions without them clobbering each other | **[ddaro](https://github.com/minwoo-data/ddaro)** |
 
 Details per plugin below.
 
