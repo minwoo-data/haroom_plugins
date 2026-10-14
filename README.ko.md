@@ -14,7 +14,8 @@ Claude Code 로 실제 작업하다 보면 터지는 특정 문제들을 겨냥�
 |---|---|
 | "Claude Code 세션 여러 개 돌리는데 서로 충돌한다" | **[ddaro](https://github.com/minwoo-data/ddaro)** |
 | "위험한 PR merge 전에 5각도 코드 리뷰가 필요하다" | **[prism](https://github.com/minwoo-data/prism)** |
-| "이 디자인 문서는 AI 에이전트도 읽을 텐데 완벽하게 만들고 싶다" | **[triad](https://github.com/minwoo-data/triad)** |
+| "auth / 결제 / 외부 입력 코드를 공격자 관점으로 털어보고 싶다" | **`/prism <target> --redteam`** (prism 안에 포함, 구 prism-devil) |
+| "이 디자인 문서는 AI 에이전트도 읽을 텐데 완벽하게 만들고 싶다" | **[triad](https://github.com/minwoo-data/triad)** (문서는 prism이 아니라 여기) |
 | "Claude 와 Codex 로 파일이 수렴할 때까지 cross-review 하고 싶다" | **[mangchi](https://github.com/minwoo-data/mangchi)** |
 
 아래에서 각 플러그인 상세.
@@ -66,9 +67,9 @@ Claude Code 로 실제 작업하다 보면 터지는 특정 문제들을 겨냥�
 
 **문제:** 리뷰어 한 명이 다른 각도에서 봤으면 잡혔을 걸 놓침. LLM 셀프 리뷰는 예측 가능한 맹점이 있음.
 
-**해결:** 5명의 특화된 리뷰 에이전트 (conflict detection / improvement / devil's advocate / code review / robustness) 가 타겟을 병렬로 봄. 한 명만 찾은 finding 은 별도 Verifier pass 로 cross-check 해서 false positive 가 시간을 낭비하지 않게 함.
+**해결:** 5개 결함 렌즈 (correctness / security / state & concurrency / integration / testability) 가 코드를 병렬로 봄. 모든 후보는 Evidence pass 가 file·lines·실행 경로에 고정하고, 스크립트가 인용을 실제 파일과 대조함. 합의는 우선순위만 정하고 확정은 증거가 함. `--redteam` 은 공격자 관점 렌즈, `--reproduce` 는 일회용 테스트로 실패 시연, `--diff` 는 파일 대신 변경을 리뷰.
 
-**사용 시점:** 큰 아키텍처 결정 직전, 확신 안 서는 PR merge 직전, skill / 디자인 문서 / 워크플로우 감사.
+**사용 시점:** 확신 안 서는 PR merge 직전, 기능 구현 직후, auth / 결제 / 외부 입력을 다루는 코드 (`--redteam`). 코드 전용 — 디자인 문서나 계획은 triad.
 
 ### [triad](https://github.com/minwoo-data/triad)
 

@@ -14,9 +14,9 @@ A small collection of Claude Code plugins that target specific pain points when 
 |---|---|
 | Find defects broadly, evidence-graded (SUSPECTED → SUPPORTED → REPRODUCED) | **[prism](https://github.com/minwoo-data/prism)** |
 | Cross-check the same review with a second model (Claude + Codex) | **`/prism-all`** (ships inside prism) |
-| Security / attacker-mindset deep probe | **[prism-devil](https://github.com/minwoo-data/prism-devil)** (separate repo) |
+| Security / attacker-mindset deep probe | **`/prism <target> --redteam`** (ships inside prism; prism-devil was absorbed in 0.3.0) |
 | Actually fix a file, iteratively, with cross-model review | **[mangchi](https://github.com/minwoo-data/mangchi)** |
-| Review markdown / designs / specs from 3 perspectives | **[triad](https://github.com/minwoo-data/triad)** |
+| Review markdown / designs / specs from 3 perspectives | **[triad](https://github.com/minwoo-data/triad)** (prism refuses document targets) |
 | Run parallel Claude Code sessions without them clobbering each other | **[ddaro](https://github.com/minwoo-data/ddaro)** |
 
 Details per plugin below.
@@ -68,9 +68,9 @@ One command refreshes every installed haroom plugin from this marketplace.
 
 **Pain:** a single reviewer misses what a different angle would have caught. LLM self-review has predictable blind spots.
 
-**What it does:** five specialized review agents look at the target in parallel (conflict detection / improvement / devil's advocate / code review / robustness), then a verifier pass cross-checks findings only one agent flagged so false positives do not waste your time.
+**What it does:** five defect lenses look at the code in parallel (correctness / security / state & concurrency / integration / testability), then an Evidence pass pins every candidate to file, lines and execution path and a script checks each quote against the real file. Agreement only sets priority; evidence confirms. `--redteam` adds an attacker-mindset lens, `--reproduce` demonstrates failures with throwaway tests, `--diff` reviews a change instead of a file.
 
-**Use when:** before a major architectural decision, before merging an uncertain PR, or auditing a skill / design doc / workflow.
+**Use when:** before merging an uncertain PR, after implementing a feature, or on anything touching auth / payments / untrusted input (`--redteam`). Code only; for a design doc or plan use triad.
 
 ### [triad](https://github.com/minwoo-data/triad)
 
