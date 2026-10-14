@@ -61,7 +61,7 @@ One command refreshes every installed haroom plugin from this marketplace.
 
 **Pain:** two Claude Code sessions editing the same repo overwrite each other's work; sessions die without saving context.
 
-**What it does:** creates one git worktree per session (disposable folder + branch), auto-pushes every commit, writes a plain-text context snapshot to disk so a crash never loses the picture, and refuses to merge if a file on `main` would silently disappear.
+**What it does:** creates one git worktree per session (disposable folder + branch), auto-pushes every commit, writes a plain-text context snapshot to disk after every commit (automatically, even for a plain `git commit`) so a crash never loses the picture, and refuses to merge if a file on the base branch (`main`, `master`, ...) would silently disappear.
 
 **Use when:** running 2+ Claude Code sessions, doing risky refactors, keeping long-running experimental branches, or working on crash-prone machines.
 
