@@ -29,7 +29,7 @@
     {
       "name": "prism",
       "source": "./plugins/prism",
-      "description": "Evidence-graded multi-angle review (0.3.1) - code gets 5 defect lenses, design docs get 5 design lenses (conflict & reuse / claim accuracy / devil's advocate / robustness / improvement); an Evidence pass pins every candidate to file/lines/execution-path; --reproduce demonstrates failures in a temp dir; --redteam adds the attacker-mindset lens absorbed from prism-devil. Agreement prioritizes, evidence confirms. Pair with triad for how a document reads. Ships /prism, /prism-codex, /prism-all.",
+      "description": "Evidence-graded multi-angle review (0.4.1) - code gets 5 defect lenses, design docs get 5 design lenses (conflict & reuse / claim accuracy / devil's advocate / robustness / improvement); an Evidence pass pins every candidate to file/lines/execution-path; --reproduce demonstrates failures in a temp dir; --redteam adds the attacker-mindset lens absorbed from prism-devil. Codex calls go through a script (codex-run.sh) that enforces the safety preamble, secret scrub and output contract, in the read-only sandbox. Agreement prioritizes, evidence confirms. Pair with triad for how a document reads. Ships /prism, /prism-codex, /prism-all.",
       "category": "development",
       "tags": [
         "code-review",
