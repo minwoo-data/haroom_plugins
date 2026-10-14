@@ -11,35 +11,76 @@
       "source": "./plugins/ddaro",
       "description": "Worktree-based parallel workflow for Claude Code sessions with a lifecycle conductor (new in 0.6.0: /ddaro:spec scaffolds a design doc + captures decisions, /ddaro:review fires prism-all + triad and collates findings, /ddaro:check is a pre-merge prism + ship-checklist gate - pure orchestration over the doc-template/prism-all/triad skills, filling the design->review front half before the existing commit->CI-merge back half; 0.6.1 adds /ddaro:go, a single conductor that reads the worktree's lifecycle stage and runs the next step - spec/review/check stay as the manual gears), plugin-native protective hooks (new in 0.5.0) and dev-cycle orchestration (0.4.0). The seven hooks (main_protection, branch_naming, cross_worktree_check, branch_worktree_match, evidence_check + the two SessionStart reporters) ship in hooks/hooks.json and activate automatically when ddaro is enabled - config-gated and fail-open, so non-ddaro projects see zero noise and nothing is written to .claude/settings.json (run /ddaro:config migrate once to clean up pre-0.5.0 installs). 6-tier classification (main / owned / adopted / protected / unmanaged / external), /ddaro:adopt, cwd-safe destructive commands (clear/abandon from main only). /ddaro:commit opt-in --verify flag (verify.json + CLAUDE.md fallback discovery). /ddaro:merge drives the PR path through CI: state machine, polling, hard-capped fix loop (default 3, configurable), CI_STUCK detection, idempotency guard, confirm gate, sync-main content-diff preview, --force-with-lease invariant. Korean triggers: /ddaro, 따로, 병렬로. English: /ddaro, parallel, isolated.",
       "category": "development",
-      "tags": ["worktree", "parallel", "git", "branch", "crash-recovery", "adopt", "main-protection", "hooks", "ci-orchestration", "verify", "evidence-check", "claude-code"]
+      "tags": [
+        "worktree",
+        "parallel",
+        "git",
+        "branch",
+        "crash-recovery",
+        "adopt",
+        "main-protection",
+        "hooks",
+        "ci-orchestration",
+        "verify",
+        "evidence-check",
+        "claude-code"
+      ]
     },
     {
       "name": "prism",
       "source": "./plugins/prism",
-      "description": "Evidence-graded multi-angle code review - 5 defect lenses discover in parallel, then an Evidence pass pins every finding to file/lines/execution-path; --reproduce demonstrates failures with throwaway tests. SUSPECTED -> SUPPORTED -> REPRODUCED: agreement prioritizes, evidence confirms.",
+      "description": "Evidence-graded multi-angle code review (0.3.0) - 5 defect lenses discover in parallel, then an Evidence pass pins every candidate to file/lines/execution-path; --reproduce demonstrates failures in a temp dir; --redteam adds the attacker-mindset lens absorbed from prism-devil. Agreement prioritizes, evidence confirms. Code only - documents go to triad. Ships /prism, /prism-codex, /prism-all.",
       "category": "development",
-      "tags": ["code-review", "multi-agent", "parallel", "evidence", "reproduction", "verification"]
+      "tags": [
+        "code-review",
+        "evidence",
+        "evidence-graded",
+        "multi-agent",
+        "parallel",
+        "red-team",
+        "reproduction",
+        "verification"
+      ]
     },
     {
       "name": "triad",
       "source": "./plugins/triad",
-      "description": "3-perspective deliberation on one document or code file - LLM clarity / architectural longevity / end-user comprehension - parallel subagents until consensus.",
+      "description": "3-perspective deliberation on one document (0.2.0) - LLM clarity / architectural longevity / end-user comprehension - parallel subagents until consensus. Documents only; code goes to prism (review) or mangchi (fix). Ships /triad, /triad-codex, /triad-all.",
       "category": "development",
-      "tags": ["deliberation", "review", "three-perspectives", "consensus"]
+      "tags": [
+        "deliberation",
+        "review",
+        "three-perspectives",
+        "consensus"
+      ]
     },
     {
       "name": "mangchi",
       "source": "./plugins/mangchi",
-      "description": "Iterative cross-model code refinement - Claude patches, Codex CLI reviews one axis per round with verification loop, until the code converges.",
+      "description": "Iterative cross-model code refinement (0.3.1) - Claude patches, Codex CLI reviews one axis per round (5 default + necessity/robustness opt-in) with a verification loop, until the code converges. Robustness is the single owner of concurrency findings; stateful code gets an auto hint.",
       "category": "development",
-      "tags": ["code-review", "codex", "refinement", "iterative", "adversarial-review"]
+      "tags": [
+        "code-review",
+        "codex",
+        "refinement",
+        "iterative",
+        "adversarial-review"
+      ]
     },
     {
       "name": "galmuri",
       "source": "./plugins/galmuri",
       "description": "Distill reusable, project-agnostic techniques (hooks, rules, guards, structural patterns) from a project into portable technique cards in a knowledge repo - so the know-how survives without the project. The companion /forge turns a skill-shaped card back into a verified Claude Code skill (classify card shape, scaffold SKILL.md, gate on 9 quality criteria). Korean trigger: 갈무리.",
       "category": "development",
-      "tags": ["knowledge-extraction", "distillation", "portability", "technique-cards", "knowledge-base", "reuse", "skill-generation"]
+      "tags": [
+        "knowledge-extraction",
+        "distillation",
+        "portability",
+        "technique-cards",
+        "knowledge-base",
+        "reuse",
+        "skill-generation"
+      ]
     }
   ]
 }
