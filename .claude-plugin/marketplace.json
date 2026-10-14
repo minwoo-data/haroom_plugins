@@ -29,7 +29,7 @@
     {
       "name": "prism",
       "source": "./plugins/prism",
-      "description": "Evidence-graded multi-angle review (0.4.1) - code gets 5 defect lenses, design docs get 5 design lenses (conflict & reuse / claim accuracy / devil's advocate / robustness / improvement); an Evidence pass pins every candidate to file/lines/execution-path; --reproduce demonstrates failures in a temp dir; --redteam adds the attacker-mindset lens absorbed from prism-devil. Codex calls go through a script (codex-run.sh) that enforces the safety preamble, secret scrub and output contract, in the read-only sandbox. Agreement prioritizes, evidence confirms. Pair with triad for how a document reads. Ships /prism, /prism-codex, /prism-all.",
+      "description": "Evidence-graded multi-angle review (0.4.2) - code gets 5 defect lenses, design docs get 5 design lenses (conflict & reuse / claim accuracy / devil's advocate / robustness / improvement); an Evidence pass pins every candidate to file/lines/execution-path; --reproduce demonstrates failures in a temp dir; --redteam adds the attacker-mindset lens absorbed from prism-devil. Codex calls go through a script (codex-run.sh) that enforces the safety preamble, secret scrub and output contract, in the read-only sandbox. Agreement prioritizes, evidence confirms. Pair with triad for how a document reads. Ships /prism, /prism-codex, /prism-all.",
       "category": "development",
       "tags": [
         "code-review",
@@ -45,7 +45,7 @@
     {
       "name": "triad",
       "source": "./plugins/triad",
-      "description": "3-perspective deliberation on one document (0.2.1) - LLM clarity / architectural longevity / end-user comprehension - parallel subagents until consensus. Documents only: triad checks whether a doc is well written, prism's design lenses check whether the design is sound; code goes to prism (review) or mangchi (fix). Ships /triad, /triad-codex, /triad-all.",
+      "description": "3-perspective deliberation on one document (0.3.0) - LLM clarity / architectural longevity / end-user comprehension - parallel subagents until consensus. Documents only: triad checks whether a doc is well written, prism's design lenses check whether the design is sound; code goes to prism (review) or mangchi (fix). Ships /triad, /triad-codex, /triad-all. Codex lenses run through codex-run.sh (safety preamble, secret scrub, read-only sandbox; one output contract for both engines).",
       "category": "development",
       "tags": [
         "deliberation",
