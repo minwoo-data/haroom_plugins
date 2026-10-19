@@ -45,7 +45,7 @@
     {
       "name": "triad",
       "source": "./plugins/triad",
-      "description": "3-perspective deliberation on one document (0.3.1) - LLM clarity / architectural longevity / end-user comprehension - parallel subagents until consensus. Documents only: triad checks whether a doc is well written, prism's design lenses check whether the design is sound; code goes to prism (review) or mangchi (fix). Ships /triad, /triad-codex, /triad-all. Codex lenses run through codex-run.sh (safety preamble, secret scrub, read-only sandbox; one output contract for both engines).",
+      "description": "3-perspective deliberation on one document (0.3.2) - LLM clarity / architectural longevity / end-user comprehension - parallel subagents until consensus. Documents only: triad checks whether a doc is well written, prism's design lenses check whether the design is sound; code goes to prism (review) or mangchi (fix). Ships /triad, /triad-codex, /triad-all. Codex lenses run through codex-run.sh (safety preamble, secret scrub, read-only sandbox; one output contract for both engines).",
       "category": "development",
       "tags": [
         "deliberation",
