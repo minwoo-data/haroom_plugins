@@ -29,7 +29,7 @@
     {
       "name": "prism",
       "source": "./plugins/prism",
-      "description": "Evidence-graded multi-angle review (0.4.2) - code gets 5 defect lenses, design docs get 5 design lenses (conflict & reuse / claim accuracy / devil's advocate / robustness / improvement); an Evidence pass pins every candidate to file/lines/execution-path; --reproduce demonstrates failures in a temp dir; --redteam adds the attacker-mindset lens absorbed from prism-devil. Codex calls go through a script (codex-run.sh) that enforces the safety preamble, secret scrub and output contract, in the read-only sandbox. Agreement prioritizes, evidence confirms. Pair with triad for how a document reads. Ships /prism, /prism-codex, /prism-all.",
+      "description": "Evidence-graded multi-angle review (0.5.0) - code gets 5 defect lenses, design docs get 4 design lenses (conflict & reuse / claim accuracy / devil's advocate / robustness); an Evidence pass pins every candidate to file/lines/execution-path; --reproduce demonstrates failures in a temp dir; --redteam adds the attacker-mindset lens absorbed from prism-devil. New in 0.5.0: an idea pass after every review - grounded alternatives (class / route / subtract) gated by a script and judged by a checker that did not write them, listed apart from findings (--no-ideas to skip); the Improvement lens is retired. Codex calls go through a script (codex-run.sh) that enforces the safety preamble, secret scrub and output contract, in the read-only sandbox. Agreement prioritizes, evidence confirms. Pair with triad for how a document reads. Ships /prism, /prism-codex, /prism-all, /prism-ideas.",
       "category": "development",
       "tags": [
         "code-review",
