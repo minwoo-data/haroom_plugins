@@ -57,7 +57,7 @@
     {
       "name": "mangchi",
       "source": "./plugins/mangchi",
-      "description": "Iterative cross-model code refinement (0.4.1) - Claude patches, Codex CLI reviews one axis per round (5 default + necessity/robustness opt-in) with a verification loop, until the code converges. Robustness is the single owner of concurrency findings; stateful code gets an auto hint. Codex calls run through codex-run.sh (safety preamble, secret scrub, read-only sandbox, YAML schema and citation gates as code).",
+      "description": "Iterative cross-model code refinement (0.4.2) - Claude patches, Codex CLI reviews one axis per round (5 default + necessity/robustness opt-in) with a verification loop, until the code converges. Robustness is the single owner of concurrency findings; stateful code gets an auto hint. Codex calls run through codex-run.sh (safety preamble, secret scrub, read-only sandbox, YAML schema and citation gates as code).",
       "category": "development",
       "tags": [
         "code-review",
